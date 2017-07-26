@@ -11,6 +11,11 @@ RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-c
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 
+# Place all apt-get install commands here
+RUN apt-get update -y
+RUN apt-get install -y rake
+#
+
 RUN chmod a+rwx /home/jenkins
 WORKDIR /home/jenkins
 USER jenkins
